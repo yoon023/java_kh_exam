@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-/bin
+bin/
 abc.txt
 *.properties
 # Log file
