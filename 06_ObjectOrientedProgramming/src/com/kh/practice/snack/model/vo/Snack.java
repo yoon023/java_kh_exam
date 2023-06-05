@@ -1,6 +1,10 @@
 package com.kh.practice.snack.model.vo;
 
-public class Snack {
+import java.io.Serializable;
+
+public class Snack implements Serializable {
+	
+	
 	private String kind;  // 종류
 	private String name; // 이름
 	private String flavor;  // 맛

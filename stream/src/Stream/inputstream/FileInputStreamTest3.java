@@ -12,9 +12,10 @@ public class FileInputStreamTest3 {
 				for(byte b : bs) {
 					System.out.println((char)b);
 				}
-			}System.out.println(": "+ i +"바이트 읽음");
+			System.out.println(": "+ i +"바이트 읽음");
 		}
-	}catch(IOException e) {
+		}
+	catch(IOException e) {
 		e.printStackTrace();
 	}
 	System.out.println("end");
