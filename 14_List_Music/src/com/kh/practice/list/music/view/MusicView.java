@@ -163,11 +163,30 @@ public class MusicView {
 		}else {
 			System.out.printf("삭제한 곡은 000(%s,%s)입니다. \n",result.getTitle(),result.getSinger());
 		}
-		System.out.println("결과");
+		
 	}
 
 	public void setMusic() {
-
+		System.out.println("****** 특정 곡 정보 수정 ******");
+		System.out.println("수정할 곡명을 입력해주세요.");
+		String title = sc.nextLine();
+		System.out.println("변경할 곡명을 입력해주세요.");
+		String newTitle = sc.nextLine();
+		System.out.println("변경할 가수명을 입력해주세요.");
+		String newSinger = sc.nextLine();
+		
+		Music result = mc.setMusic(title, new Music(newTitle,newSinger));
+		if(result == null) {
+			System.out.println("수정할 곡이 없습니다.");
+		}else {
+			//기존 곡명/가수 
+			System.out.printf("000(%s,%s)의 값이 변경되었습니다.\n", result.getTitle(),result.getSinger());
+		}
+		
+		// 사용자에게 수정할 곡을 입력 하여 MusicController에 setMusic으로 검색 할 수 있게
+		// 값을 넘기며 수정할 곡 명과 가수 명을 받아 setMusic으로 값을 넘긴다.
+		// 검색 결과 값이 없으면 “수정할 곡이 없습니다.”, 검색 결과 값이 있고
+//		 수정 했으면 “000(곡 명, 가수 명)의 값이 변경 되었습니다.” 콘솔 창에 출력
 	}
 
 	public void ascTitle() {
