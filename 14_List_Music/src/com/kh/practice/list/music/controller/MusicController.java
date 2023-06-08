@@ -177,32 +177,19 @@ public class MusicController {
 
 	public int saveFile(String filePath) {
 		int result = 0; // 0 : 저장 실패 , 1 : 저장 성공
-		FileOutputStream fos = null;
-		ObjectOutputStream oos = null;
-		BufferedOutputStream bos = null;
-		try {
-			fos = new FileOutputStream(filePath);
-			bos = new BufferedOutputStream(fos);
-			oos = new ObjectOutputStream(bos);
+				
+		try(ObjectOutputStream oos 
+				= new ObjectOutputStream(new FileOutputStream(filePath))
+				){
+			
+			oos.writeObject(list);
+			oos.flush();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-
-				if (oos != null)
-					oos.close();
-				if (bos != null)
-					bos.close();
-				if (fos != null)
-					fos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
 		}
 		return result;
 	}

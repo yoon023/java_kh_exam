@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Music implements Comparable<Music>, Serializable {
+	private static final long serialVersionUID = 730774487597531777L;
+	
 	private String title;
 	private String singer;
 	public String getTitle() {
