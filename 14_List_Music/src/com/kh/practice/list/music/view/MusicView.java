@@ -135,8 +135,8 @@ public class MusicView {
 	public void printAll() {
 		System.out.println("****** 전체 곡 목록 출력 ******");
 		List<Music> volist = mc.printAll();
-		for(Music vo : volist) {
-			System.out.println(vo); //변수 인스턴스 개체 명 vo
+		for (Music vo : volist) {
+			System.out.println(vo); // 변수 인스턴스 개체 명 vo
 		}
 	}
 
@@ -145,10 +145,10 @@ public class MusicView {
 		System.out.println("검색할 곡명을 입력해주세요.");
 		String title = sc.nextLine();
 		Music result = mc.searchMusic(title);
-		if(result == null) {
+		if (result == null) {
 			System.out.println("검색한 곡이 없습니다.");
-		}else {
-			System.out.printf("검색한 곡은 000(%s,%s)입니다. \n",result.getTitle(),result.getSinger());
+		} else {
+			System.out.printf("검색한 곡은 000(%s,%s)입니다. \n", result.getTitle(), result.getSinger());
 		}
 		System.out.println("결과");
 	}
@@ -158,12 +158,12 @@ public class MusicView {
 		System.out.println("삭제할 곡명을 입력해주세요.");
 		String title = sc.nextLine();
 		Music result = mc.removeMusic(title);
-		if(result == null) {
+		if (result == null) {
 			System.out.println("삭제할 곡이 없습니다.");
-		}else {
-			System.out.printf("삭제한 곡은 000(%s,%s)입니다. \n",result.getTitle(),result.getSinger());
+		} else {
+			System.out.printf("삭제한 곡은 000(%s,%s)입니다. \n", result.getTitle(), result.getSinger());
 		}
-		
+
 	}
 
 	public void setMusic() {
@@ -174,15 +174,15 @@ public class MusicView {
 		String newTitle = sc.nextLine();
 		System.out.println("변경할 가수명을 입력해주세요.");
 		String newSinger = sc.nextLine();
-		
-		Music result = mc.setMusic(title, new Music(newTitle,newSinger));
-		if(result == null) {
+
+		Music result = mc.setMusic(title, new Music(newTitle, newSinger));
+		if (result == null) {
 			System.out.println("수정할 곡이 없습니다.");
-		}else {
-			//기존 곡명/가수 
-			System.out.printf("000(%s,%s)의 값이 변경되었습니다.\n", result.getTitle(),result.getSinger());
+		} else {
+			// 기존 곡명/가수
+			System.out.printf("000(%s,%s)의 값이 변경되었습니다.\n", result.getTitle(), result.getSinger());
 		}
-		
+
 		// 사용자에게 수정할 곡을 입력 하여 MusicController에 setMusic으로 검색 할 수 있게
 		// 값을 넘기며 수정할 곡 명과 가수 명을 받아 setMusic으로 값을 넘긴다.
 		// 검색 결과 값이 없으면 “수정할 곡이 없습니다.”, 검색 결과 값이 있고
@@ -190,10 +190,24 @@ public class MusicView {
 	}
 
 	public void ascTitle() {
-
+		System.out.println("****** 곡 명 오름차순 정렬 ******");
+//		int result = mc.ascTitle();
+		int result = mc.ascTitle2();
+		if(result<0) {
+			System.out.println("정렬 성공");
+		}else {
+			System.out.println("정렬 실패");
+		}
 	}
 
 	public void descSinger() {
-
+		System.out.println("****** 가수 명 내림차순 정렬 ******");
+//		int result = mc.descSinger();
+		int result = mc.descSinger2();
+		if(result>0) {
+			System.out.println("정렬 성공");
+		}else {
+			System.out.println("정렬 실패");
+		}
 	}
 }
